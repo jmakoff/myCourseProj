@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,15 +7,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Histogram analyse of signals</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="script.js"></script>
 </head>
-<body>
+<body ng-controller="mainCtrl">
 <h1 class="text-center">Histogram analyse of signals!</h1><br><br>
-<form class="form-horizontal" role="form">
-<div class="row container">
-<label for="link" class="col-md-2 control-label">Enter your link here:</label>
-    <div class="col-md-2">
-<input type="text" class="form-control" id="link"></div>
-</div>
+<div class="container-fluid">
+<form class="form-inline " role="form">
+    <div class="form-group ">
+        <label class="control-label" for="link">Enter link here:</label>
+        <input type="text" class="form-control" id="link" value="localhost:3000/custom" >
+    </div>
+
 </form>
+    <br>
+    <form class="form-inline" role="form">
+        <div class="form-group ">
+            <label class="control-label" for="type">Enter type of http request</label>
+            <select id="type" class="form-control" ng-model="type">
+                <option value="get">GET</option>
+                <option value="post">POST</option>
+            </select>
+        </div>
+    </form>
+    <br>
+    <button class="btn btn-default" id="send" ng-click="send()">Send request</button>
+</div>
+<textarea class="center-block">{{message}}</textarea>
 </body>
 </html>
