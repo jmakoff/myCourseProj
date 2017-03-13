@@ -34,5 +34,21 @@
     <button class="btn btn-default" id="send" ng-click="send()">Send request</button>
 </div>
 <textarea class="center-block">{{message}}</textarea>
+
+
+<!--code for cntrl down-->
+
+<h2>Bar Chart</h2>
+<ul class="chart" style="width:{{width}}px; height:{{height}}px;">
+    <!-- Labels -->
+    <div class="y" style="width:{{height}}px;">{{yAxis}}</div>
+    <div class="x">{{xAxis}}</div>
+    <!-- Data -->
+    <li ng-repeat="bar in data" class="bar" style="height:{{bar.value / max * height}}px; width:{{width / data.length - 5}}px; left:{{$index / data.length * width}}px;"><span>{{bar.label}}:{{bar.value}}</span></li>
+</ul>
+
+
+
+
 </body>
 </html>
