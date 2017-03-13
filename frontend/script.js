@@ -1,21 +1,28 @@
+
+var numReq = 0;
 var app = angular.module('myApp', [])
 app.controller('mainCtrl', ['$scope','$http' , function ($scope, $http) {
     $scope.message = 'hello from Angular';
+
     $scope.send = function () {
         $http({
             method: 'GET',
             url: '/custom'
         }).then(function Success(res) {
+            numReq++
             $scope.message = res.data;
+            $scope.data.push({label:'added'+numReq, value:numReq});
 
         }, function error(resp) {
             console.log(resp);
         })
     }
+
+
     $scope.width = 500;
     $scope.height = 350;
-    $scope.yAxis = 'Sales';
-    $scope.xAxis = '2014';
+    $scope.yAxis = 'Time';
+    $scope.xAxis = 'number';
 
     // Data
 
