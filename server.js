@@ -5,7 +5,7 @@ var app = express();
 app.use(express.static(__dirname));
 //adding frontend folder
 app.use(express.static(__dirname + '/frontend'));
-app.get('/custom', function (req, res ) {
+app.all('/custom', function (req, res ) {
     res.send('First reguest found!!!')
 
 })

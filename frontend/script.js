@@ -1,17 +1,22 @@
-
-var numReq = 0;
+var numReq = 2;
 var app = angular.module('myApp', [])
-app.controller('mainCtrl', ['$scope','$http' , function ($scope, $http) {
+app.controller('mainCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.message = 'hello from Angular';
+    $scope.path = '/custom';
+    $scope.typeOfRequest = 'GET';
 
     $scope.send = function () {
+        var date = new Date()
         $http({
-            method: 'GET',
-            url: '/custom'
+            method: $scope.typeOfRequest,
+            url: $scope.path
         }).then(function Success(res) {
+            var curDate = new Date()
             numReq++
+
+
             $scope.message = res.data;
-            $scope.data.push({label:'added'+numReq, value:numReq});
+            $scope.data.push({label: 'Example #' + numReq + ' ' + $scope.typeOfRequest, value: curDate - date});
 
         }, function error(resp) {
             console.log(resp);
@@ -21,59 +26,19 @@ app.controller('mainCtrl', ['$scope','$http' , function ($scope, $http) {
 
     $scope.width = 500;
     $scope.height = 350;
-    $scope.yAxis = 'Time';
-    $scope.xAxis = 'number';
+    $scope.yAxis = 'Time of request(ms)';
+    $scope.xAxis = 'Number of request';
 
     // Data
 
-    $scope.data = [
+    $scope.data = [{
+
+        label: 'First example GET',
+        value: 7
+    },
         {
-            label: 'January',
-            value: 36
-        },
-        {
-            label: 'February',
-            value: 54
-        },
-        {
-            label: 'March',
-            value: 62
-        },
-        {
-            label: 'April',
-            value: 82
-        },
-        {
-            label: 'May',
-            value: 96
-        },
-        {
-            label: 'June',
-            value: 111
-        },
-        {
-            label: 'July',
-            value: 122
-        },
-        {
-            label: 'August',
-            value: 152
-        },
-        {
-            label: 'September',
-            value: 176
-        },
-        {
-            label: 'October',
-            value: 180
-        },
-        {
-            label: 'November',
-            value: 252
-        },
-        {
-            label: 'December',
-            value: 342
+            label: 'Second example POST',
+            value: 20
         }
     ];
 

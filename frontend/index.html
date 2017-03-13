@@ -16,8 +16,8 @@
 <div class="container-fluid">
 <form class="form-inline " role="form">
     <div class="form-group ">
-        <label class="control-label" for="link">Enter link here:</label>
-        <input type="text" class="form-control" id="link" value="localhost:3000/custom" >
+        <label class="control-label" for="link">Enter URL for request here:</label>
+        <input type="text" class="form-control" id="link" ng-model="path"  >
     </div>
 
 </form>
@@ -25,9 +25,9 @@
     <form class="form-inline" role="form">
         <div class="form-group ">
             <label class="control-label" for="type">Enter type of http request</label>
-            <select id="type" class="form-control" >
-                <option selected value="get">GET</option>
-                <option value="post">POST</option>
+            <select id="type" class="form-control" ng-model="typeOfRequest" >
+                <option selected value="GET">GET</option>
+                <option value="POST">POST</option>
             </select>
         </div>
     </form>
@@ -45,7 +45,7 @@
     <div class="y" style="width:{{height}}px;">{{yAxis}}</div>
     <div class="x">{{xAxis}}</div>
     <!-- Data -->
-    <li ng-repeat="bar in data" class="bar" style="height:{{bar.value / max * height}}px; width:{{width / data.length - 5}}px; left:{{$index / data.length * width}}px;"><span>{{bar.label}}:{{bar.value}}</span></li>
+    <li ng-repeat="bar in data" class="bar" style="max-height: {{height}}px ;height:{{bar.value / max * height}}px; max-width: 50px; width:{{width / data.length - 5}}px; left:{{$index / data.length * width}}px;"><span>{{bar.label}}:{{bar.value}}</span></li>
 </ul>
 
 
