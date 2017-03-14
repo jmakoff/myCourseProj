@@ -1,6 +1,6 @@
 var numReq = 2;
-var app = angular.module('myApp', [])
-app.controller('mainCtrl', ['$scope', '$http', function ($scope, $http) {
+var app = angular.module('myApp', ['pascalprecht.translate']);
+app.controller('mainCtrl', ['$translate', '$scope', '$http', function ($translate, $scope, $http) {
     $scope.message = 'hello from Angular';
     $scope.path = '/custom';
     $scope.typeOfRequest = 'GET';
@@ -26,8 +26,6 @@ app.controller('mainCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.width = 500;
     $scope.height = 350;
-    $scope.yAxis = 'Time of request(ms)';
-    $scope.xAxis = 'Number of request';
 
     // Data
 
@@ -51,5 +49,11 @@ app.controller('mainCtrl', ['$scope', '$http', function ($scope, $http) {
         if ($scope.data[i].value > $scope.max)
             $scope.max = $scope.data[i].value;
     }
+
+    $scope.lang = 'ua';
+    $scope.changeLang = function () {
+        $translate.use($scope.lang)
+    }
+
 
 }])

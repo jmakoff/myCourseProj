@@ -26,12 +26,12 @@ body {
     padding: 5px;
 }
 .bar {
-    background: goldenrod;
+    background: forestgreen;
     position: absolute;
     bottom: 0;
 }
 .bar:nth-of-type(even) {
-    background: rebeccapurple;
+    background: darkred;
 }
 .bar span {
     position: absolute;

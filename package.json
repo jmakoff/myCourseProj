@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.3",
+    "angular-translate": "^2.15.1",
     "bootstrap": "^3.3.7",
     "express": "^4.15.2",
     "path": "^0.12.7"
