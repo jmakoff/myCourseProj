@@ -16,7 +16,12 @@ app.controller('mainCtrl', ['$translate', '$scope', '$http', function ($translat
 
 
             $scope.message = res.data;
-            $scope.data.push({label: 'Example #' + numReq + ' ' + $scope.typeOfRequest, value: curDate - date});
+            $scope.data.push({
+                label: 'Example #' + numReq,
+                type: $scope.typeOfRequest,
+                value: curDate - date
+            })
+            ;
 
         }, function error(resp) {
             console.log(resp);
@@ -31,12 +36,14 @@ app.controller('mainCtrl', ['$translate', '$scope', '$http', function ($translat
 
     $scope.data = [{
 
-        label: 'First example GET',
-        value: 7
+        label: 'First example',
+        value: 7,
+        type: 'GET'
     },
         {
-            label: 'Second example POST',
-            value: 20
+            label: 'Second example',
+            value: 20,
+            type: 'POST'
         }
     ];
 
@@ -53,7 +60,20 @@ app.controller('mainCtrl', ['$translate', '$scope', '$http', function ($translat
     $scope.lang = 'ua';
     $scope.changeLang = function () {
         $translate.use($scope.lang)
-    }
+    };
+    $scope.showTable = false;
+    $scope.toggleTable = function () {
+        switch ($scope.showTable) {
+            case (true):
+                $scope.showTable = false;
+                break;
 
+            case (false):
+                $scope.showTable = true;
+                break;
+
+
+        }
+    }
 
 }])
