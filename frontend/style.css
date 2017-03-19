@@ -26,13 +26,13 @@ body {
     padding: 5px;
 }
 .bar {
-    background: forestgreen;
+   /* background: forestgreen;*/
     position: absolute;
     bottom: 0;
 }
-.bar:nth-of-type(even) {
+/*.bar:nth-of-type(even) {
     background: darkred;
-}
+}*/
 .bar span {
     position: absolute;
     bottom: -10px;

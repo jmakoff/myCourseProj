@@ -54,13 +54,7 @@
             </select>
         </div>
         <br><br>
-        <div ng-if="typeOfRequest=='POST'">
-            <label for="post_inp" class="control-label">{{"POST_LABEL" | translate}}</label>
-            <input type="text"
-                   class="form-control"
-                   ng-model="reqText"
-                   id="post_inp">
-        </div>
+
     </form>
     <br>
     <button class="btn btn-default" id="send" ng-click="send()">{{'SEND'| translate}}</button>
@@ -76,7 +70,7 @@
     <div class="x">{{'count' | translate}}</div>
     <!-- Data -->
     <li ng-repeat="bar in data" class="bar"
-        style="max-height: {{height}}px ;height:{{bar.value / max * height}}px; max-width: 50px; width:{{width / data.length - 5}}px; left:{{$index / data.length * width}}px;">
+        style="background: {{bar.color}}; max-height: {{height}}px ;height:{{bar.value / max * height}}px; max-width: 50px; width:{{width / data.length - 5}}px; left:{{$index / data.length * width}}px;">
         <span>{{bar.label}}:{{bar.value}}</span></li>
 </ul>
 <button class="btn btn-default" ng-click="toggleTable()">{{"info" | translate}}</button>

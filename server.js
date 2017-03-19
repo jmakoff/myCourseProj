@@ -13,8 +13,8 @@ app.get('/', function(req, res){
 res.sendfile(path.join(__dirname, 'frontend/index.html'))/*Get default view*/
 })
 app.use(function(req, res, next) {
-    res.status(404).setHeader('401');
-    res.status(404).send('H111');
+
+    res.status(401).send('Wrong route!!!("/custom" is right)');
 
 });
 

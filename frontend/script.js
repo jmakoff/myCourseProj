@@ -4,6 +4,12 @@ app.controller('mainCtrl', ['$translate', '$scope', '$http', function ($translat
     $scope.message = 'hello from Angular';
     $scope.path = '/custom';
     $scope.typeOfRequest = 'GET';
+    $scope.color=function (type) {
+        if (type == "GET"){
+            return 'darkred'
+        }
+        else { return 'forestgreen'}
+    }
 
     $scope.send = function () {
         var date = new Date()
@@ -19,13 +25,14 @@ app.controller('mainCtrl', ['$translate', '$scope', '$http', function ($translat
             $scope.data.push({
                 label: 'Example #' + numReq,
                 type: $scope.typeOfRequest,
-                value: curDate - date
+                value: curDate - date,
+                color: $scope.color($scope.typeOfRequest)
             })
             ;
 
         }, function error(resp) {
             console.log(resp);
-            alert($scope.message)
+            alert(resp.data);
         })
     }
 
@@ -39,12 +46,15 @@ app.controller('mainCtrl', ['$translate', '$scope', '$http', function ($translat
 
         label: 'First example',
         value: 7,
-        type: 'GET'
+        type: 'GET',
+        color: 'darkred'
+
     },
         {
             label: 'Second example',
             value: 20,
-            type: 'POST'
+            type: 'POST',
+            color: 'forestgreen'
         }
     ];
 
