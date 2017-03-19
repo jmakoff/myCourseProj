@@ -53,3 +53,6 @@ body {
 .bar:hover span {
     opacity: 1;
 }
+.tableSize{
+    width: 50%;
+}

@@ -81,7 +81,8 @@
 </ul>
 <button class="btn btn-default" ng-click="toggleTable()">{{"info" | translate}}</button>
 
-<table class="table table-hover" ng-if="showTable==true">
+<div class="tableSize center-block "><br>
+<table class="table table-hover table-bordered" ng-if="showTable==true">
     <thead>
     <tr>
         <td>{{'numberReq' | translate}}</td>
@@ -99,7 +100,7 @@
     </tr>
     </tbody>
 </table>
-
+</div>
 
 </body>
 </html>

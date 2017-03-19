@@ -25,6 +25,7 @@ app.controller('mainCtrl', ['$translate', '$scope', '$http', function ($translat
 
         }, function error(resp) {
             console.log(resp);
+            alert($scope.message)
         })
     }
 
